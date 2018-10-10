@@ -1,0 +1,36 @@
+html, body
+{
+    width:100%;
+    margin:0%;
+}
+
+.panel-body
+{
+    margin:0%;
+    width:100%;
+    background:#ccc;
+    height:auto;
+    padding:5px 0px;
+}
+
+.panel-body table
+{
+    margin:0;
+    width:100%;
+    text-align:center;
+}
+td{
+    width: 35vw;
+    display: table-cell;
+}
+.message{
+
+}
+
+.block{
+    font-size: 30vw;
+}
+.div-message{
+    text-align: center;
+    font-size: 10vw;
+}
