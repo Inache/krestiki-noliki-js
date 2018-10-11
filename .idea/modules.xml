@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/tictactoeWithJS.iml" filepath="$PROJECT_DIR$/.idea/tictactoeWithJS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/krestiki-noliki-js.iml" filepath="$PROJECT_DIR$/krestiki-noliki-js.iml" />
     </modules>
   </component>
 </project>
