@@ -91,12 +91,7 @@ function checkForWin() {
         console.log("diagonal rising win");
         return true;
     }
-    //check for tie
-    for (var i = 0; i < boardArray.length; i++) {
-        if (boardArray[i] !== "·") {
-            console.log("TIE");
-        }
-    }
+
     return false;
 //     var result = false;
 //     if (document.turn === a1 && a1 === a2 && a2 === a3) {
