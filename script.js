@@ -4,7 +4,7 @@ function play() {
     }
 
     document.turn = "X";
-    setMessage(document.turn + " turn");
+    document.getElementById("message").innerText = "X goes first!";
     document.winner = null;
 
 }
@@ -20,6 +20,9 @@ function makeMove(block) {
     else if (block.innerText === "·") {
         block.innerText = document.turn;
         changeTurn();
+
+
+
     }
     else {
         setMessage("This position is Taken, please select another one!");
@@ -30,17 +33,21 @@ function makeMove(block) {
 function changeTurn() {
     if (checkForWin() === true) {
         alert(document.turn + " win");
-        setMessage(document.turn + " win");
         document.winner = document.turn;
     }
-
+    else if (checkForWin() === 1 && checkForWin() === false){
+        alert("DRAW");
+        document.turn = "TIE!";
+    }
     else if (document.turn === "X") {
         document.turn = "O";
-        setMessage(document.turn + " turn");
+        setMessage(document.turn);
+
     }
     else
         document.turn = "X";
-    setMessage(document.turn + " turn");
+    setMessage(document.turn);
+
 
 
 }
@@ -59,15 +66,12 @@ function checkForWin() {
     var a7 = document.getElementById("b7").innerText;
     var a8 = document.getElementById("b8").innerText;
     var a9 = document.getElementById("b9").innerText;
-    // for (var i = 1; i <= 9; i++){
-    //     var a+i = document.getElementById("b"+i).innerText;
-    // }
+//TODO make this better way!;
 
 
     var boardArray = [[a1, a2, a3], [a4, a5, a6], [a7, a8, a9]];
-    for (var i = 0; i < boardArray.length; i++) {
-        console.log(boardArray[i]);
-    }
+
+
     //Checking rows;
     for (var i = 0; i < boardArray.length; i++) {
         if (boardArray[i][0] !== "·" && boardArray [i][0] === boardArray[i][1] && boardArray[i][1] === boardArray[i][2]) {
@@ -91,48 +95,13 @@ function checkForWin() {
         console.log("diagonal rising win");
         return true;
     }
+    //Tie;
+    if (a1 !== "·" && a2 !== "·" && a3 !== "·" && a4 !== "·" && a5 !== "·" && a6 !== "·" && a7 !== "·" && a8 !== "·" && a9 !== "·"){
+        return 1;
+    }
 
     return false;
-//     var result = false;
-//     if (document.turn === a1 && a1 === a2 && a2 === a3) {
-//         setMessage(document.turn + " win!");
-//         result = true;
-//     }
-//     else if (document.turn === a4 && a4 === a5 && a5 === a6) {
-//         setMessage(document.turn + " win!");
-//         result = true;
-//
-//     }
-//     else if (document.turn === a7 && a7 === a8 && a8 === a9) {
-//         setMessage(document.turn + " win!");
-//         result = true;
-//
-//     }
-//     else if (document.turn === a1 && a1 === a4 && a4 === a7) {
-//         setMessage(document.turn + " win!");
-//         result = true;
-//
-//     }
-//     else if (document.turn === a2 && a2 === a5 && a5 === a8) {
-//         setMessage(document.turn + " win!");
-//         result = true;
-//
-//     }
-//     else if (document.turn === a3 && a3 === a6 && a6 === a9) {
-//         setMessage(document.turn + " win!");
-//         result = true;
-//
-//     }
-//     else if (document.turn === a1 && a1 === a5 && a5 === a9) {
-//         setMessage(document.turn + " win!");
-//         result = true;
-//
-//     }
-//     else if (document.turn === a7 && a7 === a5 && a5 === a3) {
-//         setMessage(document.turn + " win!");
-//         result = true;
-//     }
-// return result;
+    // Alternative check from Java
     // function checkHorizontal() {
     //     for (var i = 0; i < 3; i++) {
     //         for (var j = 0; j < 3; j++) {
@@ -188,19 +157,12 @@ function checkForWin() {
     //     }
     //
     // }
-    //
-    //
-    // if (checkHorizontal() === true || checkVertical() === true || checkRising() === true || checkFalling() === true) {
-    //     setMessage("GGWP");
-    //     console.log("GGWP");
-    //     return true;
-    // }
-    // else
-    // return false;
+
 }
 
 function clear(number) {
     document.getElementById("b" + number).innerText = "·";
 }
-//TODO: CHECK FOR TIE!!!
+
+
 
